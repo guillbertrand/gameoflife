@@ -1,2 +1,2 @@
-# gameoflife
-Conway Game of Life : Simple Python implementation just for fun...
+# Conway's Game of Life
+Simple Python implementation
