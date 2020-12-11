@@ -39,6 +39,9 @@ u = np.array([
             [1, 0, 1],
                     ])
 
+# oscillator
+oscillator = np.array([[1, 1, 1]])
+
 # define start pattern. 
 pattern = u
 
@@ -51,7 +54,7 @@ board = board.astype(int)
 # init graph
 fig = plt.figure(dpi=120)    
 cmap = plt.get_cmap('gray_r')
-pc = plt.pcolor(board, cmap="gray_r", edgecolors='cadetblue', linewidths=0.2)
+pc = plt.pcolor(board, cmap="gray_r", edgecolors='lightgray', linewidths=0.2)
 ax = plt.gca()
 time_text = ax.text(1, 1,'')
 
@@ -73,6 +76,6 @@ def animate(i):
 
 # run evolution
 nb_of_generation = None # = infinite
-ani = animation.FuncAnimation(fig, animate, frames=nb_of_generation, interval=20, blit=False, repeat=False)
+ani = animation.FuncAnimation(fig, animate, frames=nb_of_generation, interval=30, blit=False, repeat=False)
 plt.show()
 
