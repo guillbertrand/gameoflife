@@ -61,14 +61,7 @@ kernel[1,1] = 0
 def animate(i):
     global board, kernel
     # count neighbours with 2D convolution
-    #neigh = np.zeros(BOARD_SIZE)
-    #neigh[1:-1,1:-1] = (board[:-2,:-2]  + board[:-2,1:-1] + board[:-2,2:] + 
-    #                    board[1:-1,:-2] +                   board[1:-1,2:]+ 
-    #                    board[2:,:-2]   + board[2:,1:-1]  + board[2:,2:]) 
     neigh = convolve2d(board, kernel, mode='same')
-    print(board)
-    print('')
-    print(neigh)
     # alive if 3 neighbours or 2 neighbours and already alive                    
     board = np.logical_or(neigh==3,np.logical_and(board==1,neigh==2))
     board = board.astype(int)
