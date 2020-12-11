@@ -7,12 +7,40 @@ import matplotlib.animation as animation
 BOARD_SIZE = (100,150)
 board = np.zeros(BOARD_SIZE)
 
-# define start pattern. ex : R-pentomino
-pattern = np.array([[0, 0, 0, 0, 0],
+# R-pentomino
+rpentomino = np.array([
+                    [0, 0, 0, 0, 0],
                     [0, 0, 1, 1, 0],
                     [0, 1, 1, 0, 0],
                     [0, 0, 1, 0, 0],
-                    [0, 0, 0, 0, 0]])
+                    [0, 0, 0, 0, 0]
+                    ])
+
+# A corn
+acorn = np.array([
+                    [0, 1, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 1, 0, 0, 0],
+                    [1, 1, 0, 0, 1, 1, 1],
+                    ])
+
+# Infinite
+infinite = np.array([
+                    [1, 1, 1, 0, 1],
+                    [1, 0, 0, 0, 0],
+                    [0, 0, 0, 1, 1],
+                    [0, 1, 1, 0, 1],
+                    [1, 0, 1, 0, 1],
+                    ])
+
+# U
+u = np.array([
+            [1, 1, 1],
+            [1, 0, 1],
+            [1, 0, 1],
+                    ])
+
+# define start pattern. 
+pattern = u
 
 posX = int(BOARD_SIZE[0]/2)-int(pattern.shape[0]/2)
 posY = int(BOARD_SIZE[1]/2)-int(pattern.shape[1]/2)
@@ -51,7 +79,7 @@ def animate(i):
 
 
 # run evolution
-nb_of_generation = 1200
+nb_of_generation = None # = infinite
 ani = animation.FuncAnimation(fig, animate, frames=nb_of_generation, interval=20, blit=False, repeat=False)
 plt.show()
 
